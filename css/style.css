@@ -1,0 +1,2003 @@
+@charset "UTF-8";
+/*=================================================*/
+/*                  base                           */
+/*=================================================*/
+/*フォント種類*/
+/*color*/
+/*枠の色*/
+/*背景色*/
+/*連絡掲示板吹き出しの背景*/
+/*文字サイズ*/
+/*余白*/
+/*レイアウト幅*/
+/*z-index*/
+/*ブレークポイント*/
+/*メディアクエリー*/
+/*切り替えのデフォルトをtabにする*/
+/*文字,背景色*/
+html {
+  font-size: 6.25%;
+  /* 16px x 0.0625 = 1px */
+}
+
+body {
+  background: #ededed;
+  font-size: 16em;
+  /* 16px */
+  color: #6c6c6c;
+  line-height: 1.6;
+  font-family: Quicksand, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  letter-spacing: 0.1em;
+  /*Dark Mode*/
+}
+
+body header {
+  background: #3f3f3f;
+  transition: 0.5s;
+}
+
+body header a {
+  color: #f9f9f9;
+}
+
+body footer {
+  background: #3f3f3f;
+  transition: 0.5s;
+}
+
+body.darkmode {
+  color: #fff;
+  background: #1c1c1e;
+  background: -webkit-linear-gradient(to right, #3f3f3f, #1c1c1e);
+  /* chrome 10-25, safari 5.1-6*/
+  background: linear-gradient(to right, #3f3f3f, #1c1c1e);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  transition: 0.5s;
+}
+
+body.darkmode header {
+  background: #000000;
+  color: #fff;
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 1179px) {
+  body.darkmode header .p-header__nav {
+    color: #b6a489;
+    background: #1c1c1e;
+    opacity: 0.99;
+  }
+}
+
+body.darkmode footer {
+  background: #000000;
+  color: #fff;
+  transition: 0.5s;
+}
+
+body.darkmode a {
+  color: #f9f9f9;
+}
+
+body.darkmode .p-scroll__link:hover {
+  background: #6c6c6c;
+}
+
+body.darkmode .c-panel .c-panel__link:hover {
+  background: #6c6c6c;
+  opacity: 0.9;
+}
+
+body.darkmode .c-table__container {
+  color: #3f3f3f;
+}
+
+body.darkmode .c-table__container a {
+  color: #3f3f3f;
+}
+
+body.darkmode .c-button__container .c-button.black {
+  background: #faedeb;
+  color: #3f3f3f;
+  opacity: 0.9;
+}
+
+body.darkmode .p-messageBord .p-message__info {
+  background: #3f3f3f;
+}
+
+body.darkmode .p-messageBord .p-message__infoSp {
+  background: #3f3f3f;
+}
+
+body.darkmode .p-messageBord .p-message__bord {
+  background: #3f3f3f;
+}
+
+body.darkmode .p-messageBord .p-message__bord .p-msg__inrTxt {
+  color: #1c1c1e;
+}
+
+body.darkmode .p-messageBord .p-newMessage__sendArea {
+  background: #3f3f3f;
+}
+
+h1 {
+  font-size: 20rem;
+  /* 1pxの20倍だから20pxだよ！ */
+}
+
+h2 {
+  font-size: 18rem;
+  /* 1pxの12倍だから12pxだよ！ */
+}
+
+li {
+  font-size: 16rem;
+  /* 100pxの0.16倍だから16pxだよ！ */
+}
+
+p {
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  -webkit-font-smoothing: antialiased;
+  color: #1c1c1e;
+  transition: 0.3s;
+  font-size: 14rem;
+  /* 100pxの0.16倍だから16pxだよ！ */
+}
+
+a:hover {
+  transition: 0.3s;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 767px) {
+  /*文字,背景色*/
+  body {
+    font-size: 14em;
+    /* 16px */
+    line-height: 1.4;
+  }
+  h1 {
+    font-size: 18rem;
+    /* 1pxの20倍だから20pxだよ！ */
+  }
+  h2 {
+    font-size: 16rem;
+    /* 1pxの12倍だから12pxだよ！ */
+  }
+  li {
+    font-size: 14rem;
+    /* 100pxの0.16倍だから16pxだよ！ */
+  }
+  p,
+  a {
+    -webkit-font-smoothing: antialiased;
+  }
+  a {
+    font-size: 12rem;
+    /* 100pxの0.16倍だから16pxだよ！ */
+  }
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="submit"] {
+  border: none;
+}
+
+input[type="text"]::placeholder, input[type="password"]::placeholder, input[type="date"]::placeholder, input[type="submit"]::placeholder {
+  opacity: 0.4;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="submit"]:focus {
+  border: 0.3rem solid #a9aeee;
+  opacity: 0.8;
+  outline: 0;
+}
+
+textarea {
+  border: none;
+}
+
+textarea:focus {
+  border: 0.3rem solid #a9aeee;
+  opacity: 0.8;
+  outline: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+select {
+  width: 100%;
+  height: 3em;
+  cursor: pointer;
+  text-indent: 0.01px;
+  text-overflow: ellipsis;
+  border: none;
+  outline: none;
+  background: transparent;
+  background-image: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.l-header {
+  width: 100%;
+  position: fixed;
+  height: 80px;
+  z-index: 20;
+  box-shadow: 0px 0px 2px 0px #6c6c6c;
+}
+
+@media screen and (max-width: 1179px) {
+  .l-header {
+    height: 60px;
+  }
+}
+
+.l-topbaner {
+  margin-top: 80px;
+}
+
+.l-topbaner .l-topbaner__img {
+  background-repeat: no-repeat;
+  /* 画像の繰り返しを指定  */
+  background-position: center center;
+  /* 画像の表示位置を指定  */
+  background-size: contain;
+  /* 画像のサイズを指定    */
+  width: 100%;
+  /* 横幅のサイズを指定    */
+  max-height: 800px;
+}
+
+@media screen and (max-width: 1179px) {
+  .l-topbaner {
+    margin-top: 20rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .l-topbaner {
+    margin-top: 10rem;
+  }
+}
+
+.l-contents {
+  margin-top: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1180px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+}
+
+@media screen and (max-width: 1179px) {
+  .l-contents {
+    flex-direction: column;
+    margin-top: 60px;
+  }
+}
+
+.l-contents .l-main {
+  margin-bottom: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  flex-basis: auto;
+  width: calc(100% - 200px);
+}
+
+@media screen and (max-width: 1179px) {
+  .l-contents .l-main {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+.l-contents .l-main.l-main__form {
+  padding: 0;
+}
+
+.l-contents .l-sidebar {
+  width: 200px;
+  margin-top: 166px;
+  height: 380px;
+}
+
+@media screen and (max-width: 1179px) {
+  .l-contents .l-sidebar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1179px) {
+  .l-contents .l-main__use {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+html {
+  height: 100%;
+}
+
+html .l-body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+html .l-body .l-body__main {
+  flex: 1;
+}
+
+/*=================================================*/
+/*                  submit ボタン                  */
+/*=================================================*/
+.c-button__container .c-button {
+  width: 100%;
+  margin-bottom: 2rem;
+  border-radius: 4px;
+  padding: 1rem 2rem;
+  /*sign-up*/
+  /*withdraw*/
+  /*log-in*/
+  /*edit*/
+  /*search*/
+  /*紙飛行機icn*/
+}
+
+.c-button__container .c-button:hover {
+  cursor: pointer;
+}
+
+.c-button__container .c-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.c-button__container .c-button.black {
+  background: #3f3f3f;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.c-button__container .c-button.black:hover {
+  opacity: 1;
+  color: #fff;
+}
+
+.c-button__container .c-button.fas.fa-user-plus {
+  display: inline-block;
+}
+
+.c-button__container .c-button.fas.fa-user-minus {
+  display: inline-block;
+}
+
+.c-button__container .c-button.fas.fa-sign-in-alt {
+  display: inline-block;
+}
+
+.c-button__container .c-button.far.fa-edit {
+  display: inline-block;
+}
+
+.c-button__container .c-button.fas.fa-search {
+  display: inline-block;
+}
+
+.c-button__container .c-button.far.fa-paper-plane {
+  display: inline-block;
+}
+
+/*=================================================*/
+/*                  Font Awesome ボタン            */
+/*=================================================*/
+/*mail*/
+.far.fa-envelope {
+  display: inlin-block;
+  font-size: 36px;
+}
+
+/*phone*/
+.fas.fa-phone-square {
+  display: inline;
+  font-size: 36px;
+}
+
+/*moon*/
+.fas.fa-moon {
+  display: inline;
+  font-size: 28px;
+  color: #b2e6f4;
+}
+
+.fas.fa-sun {
+  display: inline;
+  font-size: 28px;
+  color: #fbd8d4;
+}
+
+.l-form__btn {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 24px 40px;
+  width: 100%;
+}
+
+.l-form__btn.btn-gradient {
+  color: #fff;
+  background: #848484;
+  background: -webkit-linear-gradient(to right, #d9ccf0, #848484);
+  /* chrome 10-25, safari 5.1-6*/
+  background: linear-gradient(to right, #d9ccf0, #848484);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/*=================================================*/
+/*                  Passwordの表示/非表示切替      */
+/*=================================================*/
+.c-mode__toggle {
+  position: relative;
+}
+
+.c-mode__toggle .c-blind__checkbox {
+  display: none;
+}
+
+.c-mode__toggle .c-blind__icn {
+  position: absolute;
+  top: -4px;
+  right: 1rem;
+  font-size: 21px;
+  font-weight: 900;
+  font-family: "Font Awesome 5 Free";
+}
+
+.c-mode__toggle .c-blind__checkbox + .c-blind__icn:before {
+  content: "\f070";
+  color: #6c6c6c;
+}
+
+.c-mode__toggle .c-blind__checkbox:checked + .c-blind__icn:before {
+  content: "\f06e";
+  color: #3f3f3f;
+}
+
+/*=================================================*/
+/*                  title                          */
+/*=================================================*/
+.c-main__title {
+  margin: 2rem 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+.c-sub__title {
+  margin: 2rem 0;
+  font-family: "FontAwesome";
+  font-family: "Font Awesome 5 Free";
+}
+
+.c-sub__title.p-subtitle__report::after {
+  content: "\f7d9";
+  font-weight: 900;
+  color: #b6a489;
+}
+
+.c-sub__title.p-subtitle__message::after {
+  content: "\f4ad";
+  font-weight: 400;
+  color: #b6a489;
+}
+
+.c-sub__title.p-subtitle__like::after {
+  content: "\f164";
+  font-weight: 900;
+  color: #b6a489;
+}
+
+.c-sub__title.p-subtitle__contact::after {
+  content: "\f4ad";
+  font-weight: 900;
+  color: #b6a489;
+}
+
+/*=================================================*/
+/*                  input タグ                     */
+/*=================================================*/
+.c-form {
+  /*画像アップローダー関係*/
+}
+
+.c-form__label {
+  display: block;
+}
+
+.c-form__label .c-label__input {
+  width: 100%;
+  height: 3em;
+  background: #f9f9f9;
+  padding: 10px;
+  margin-top: 1rem;
+}
+
+.c-form__label .c-label__textarea {
+  width: 100%;
+  height: 100px;
+  background: #f9f9f9;
+  padding: 10px;
+  margin-top: 1rem;
+}
+
+.c-form__label .c-label__textarea.contact-form {
+  margin-top: 2rem;
+}
+
+.c-form__label.err .c-label__input,
+.c-form__label.err .c-label__textarea,
+.c-form__label.err .c-label__selectbox {
+  background: #faedeb;
+}
+
+.c-form .c-form-errorMsgContainer {
+  display: block;
+  color: #f1958d;
+  height: 3em;
+  margin-top: 0.8em;
+  margin-bottom: 1em;
+}
+
+@media screen and (max-width: 767px) {
+  .c-form .c-form-errorMsgContainer {
+    margin-top: 4px;
+    margin-bottom: 8px;
+  }
+}
+
+.c-form .c-form-errorMsgContainer .c-form__areaMsg .js-set-msg-email.is-success {
+  color: #59c294;
+  display: inline-block;
+}
+
+.c-form .c-form-errorMsgContainer .c-form__areaMsg .js-set-msg-email.is-success::before {
+  font-family: "FontAwesome";
+  content: "\f058";
+  transition: 0.5s;
+}
+
+.c-form .c-form-errorMsgContainer .c-form__areaMsg .js-set-msg-email.is-error {
+  color: #f1958d;
+  display: inline-block;
+}
+
+.c-form .c-form-errorMsgContainer .c-form__areaMsg .js-set-msg-email.is-error:before {
+  font-family: "FontAwesome";
+  content: "\f057";
+  transition: 0.5s;
+}
+
+.c-form .c-form__imgDropContainer {
+  margin: 2rem 0 3rem 0;
+}
+
+.c-form .c-form__imgDropContainer .c-form__drop {
+  background: #f9f9f9;
+  width: 100%;
+  height: 290px;
+  color: #000000;
+  text-align: center;
+  line-height: 300px;
+  position: relative;
+}
+
+.c-form .c-form__imgDropContainer .c-form__drop .c-label__file {
+  opacity: 0;
+  width: 100%;
+  height: 290px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  /* z-indexをつけないと登録画像を変更する際にドラッグ＆ドロップできなくなる*/
+}
+
+.c-form .c-form__imgDropContainer .c-form__drop .c-label__img {
+  width: 100%;
+  height: 290px;
+  object-fit: contain;
+}
+
+/*=================================================*/
+/*                  selectbox                      */
+/*=================================================*/
+.c-label__selectbox {
+  overflow: hidden;
+  width: 100%;
+  margin: 1rem auto 0 0;
+  text-align: center;
+}
+
+.c-label__selectbox.p-selectbox__1 {
+  position: relative;
+  border: 1px solid #f9f9f9;
+  border-radius: 2px;
+  background: #fff;
+  border: none;
+  background: #f9f9f9;
+}
+
+.c-label__selectbox.p-selectbox__1::before {
+  position: absolute;
+  top: 1.1em;
+  right: 1.2em;
+  width: 0;
+  height: 0;
+  padding: 0;
+  content: "";
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #6c6c6c;
+  pointer-events: none;
+}
+
+.c-label__selectbox.p-selectbox__1 select {
+  padding: 8px 38px 8px 8px;
+}
+
+/*=================================================*/
+/*                  panel                          */
+/*=================================================*/
+/*history,mypage*/
+.c-panel {
+  margin-bottom: 8rem;
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 1px 0px 0px #6c6c6c;
+}
+
+.c-panel .c-panel__link {
+  margin: 8px;
+  padding: 16px;
+  border-radius: 8px;
+  width: calc(20% - 16px);
+  text-decoration: none;
+  line-height: 1.2;
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 1179px) {
+  .c-panel .c-panel__link {
+    width: calc(50% - 16px);
+  }
+}
+
+.c-panel .c-panel__link:hover {
+  background: #f9f9f9;
+  opacity: 1;
+}
+
+.c-panel .c-panel__link .c-panel__head .c-panel__img {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 767px) {
+  .c-panel .c-panel__link .c-panel__head .c-panel__img {
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c-panel .c-panel__link .c-panel__body {
+    line-height: 1;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c-panel .c-panel__link .c-panel__body .c-panel__list {
+    font-size: 12px;
+  }
+}
+
+/*=================================================*/
+/*                  ページネーション               */
+/*=================================================*/
+/*SpとTab画面でのみ表示する*/
+.c-sp__pagenation {
+  display: none;
+}
+
+@media screen and (max-width: 1179px) {
+  .c-sp__pagenation {
+    display: block;
+  }
+}
+
+.c-pagenation {
+  margin: 40px 0 32px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 1179px) {
+  .c-pagenation {
+    margin: 8px 0 12px 0;
+  }
+}
+
+.c-pagenation .c-pagenation__menu {
+  position: relative;
+  left: 50%;
+  float: left;
+  padding-left: 0;
+  list-style: none;
+}
+
+.c-pagenation .c-pagenation__menu .c-pagenation__list {
+  position: relative;
+  left: -50%;
+  float: left;
+  margin-right: 5px;
+}
+
+@media screen and (max-width: 1179px) {
+  .c-pagenation .c-pagenation__menu .c-pagenation__list {
+    margin-right: 16px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c-pagenation .c-pagenation__menu .c-pagenation__list {
+    margin-right: 8px;
+  }
+}
+
+.c-pagenation .c-pagenation__menu .c-pagenation__list:last-child {
+  margin-right: 0;
+}
+
+.c-pagenation .c-pagenation__menu .c-pagenation__list.active .c-pagenation__link {
+  background: #3f3f3f;
+  color: #fff;
+}
+
+.c-pagenation .c-pagenation__menu .c-pagenation__list .c-pagenation__link {
+  display: block;
+  padding: 5px 10px;
+  background: #ededed;
+  color: #3f3f3f;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+@media screen and (max-width: 767px) {
+  .c-pagenation .c-pagenation__menu .c-pagenation__list .c-pagenation__link {
+    border-radius: 16px;
+  }
+}
+
+.c-pagenation .c-pagenation__menu .c-pagenation__list .c-pagenation__link:hover {
+  background: #6c6c6c;
+  color: #fff;
+}
+
+/*=================================================*/
+/*                  テーブル                       */
+/*=================================================*/
+/*mypage,report*/
+.c-table__container {
+  /*横スクロールバーを表示させる*/
+  padding: 3rem;
+  overflow: auto;
+  margin-bottom: 8rem;
+  box-shadow: 1px 0px 0px #6c6c6c;
+  border-radius: 6px;
+  /*セル内にあるテキストの折り返し禁止*/
+  white-space: nowrap;
+}
+
+.c-table__container .c-table__main {
+  width: 100%;
+  background: #f9f9f9;
+  border-spacing: 0 5px;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .c-table__container .c-table__main:after {
+    content: "＊横にスクロールしてください";
+  }
+}
+
+.c-table__container .c-table__main .c-table__head {
+  /*項目*/
+  border-bottom: 1px solid #3f3f3f;
+}
+
+.c-table__container .c-table__main .c-table__head .c-table__list {
+  text-align: center;
+  padding: 5px;
+}
+
+.c-table__container .c-table__main .c-table__body {
+  /*中身*/
+}
+
+.c-table__container .c-table__main .c-table__body .c-table__menu:nth-child(odd) {
+  background-color: #ededed;
+}
+
+.c-table__container .c-table__main .c-table__body .c-table__menu .c-table__list {
+  text-align: center;
+  padding: 5px;
+  border-right: none;
+}
+
+.c-table__container .c-table__main .c-table__body .c-table__menu .c-table__list a {
+  color: #6c6c6c;
+}
+
+/*=================================================*/
+/*                  スクロール                     */
+/*=================================================*/
+.c-scroll__container {
+  overflow-y: scroll;
+  padding: 24px;
+}
+
+/*=================================================*/
+/*                  Header                         */
+/*=================================================*/
+.p-header {
+  width: 1180px;
+  max-width: 100%;
+  height: 80px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1179px) {
+  .p-header {
+    height: 60px;
+  }
+}
+
+.p-header__logo {
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  margin: 5px 0px;
+}
+
+.p-header__logo .p-logo {
+  text-decoration: none;
+  margin-left: 16px;
+}
+
+.p-header__nav {
+  /*ハンバーガーメニュー表示*/
+  /*menu*/
+  /* ul タグ */
+}
+
+@media screen and (max-width: 1179px) {
+  .p-header__nav {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    background: rgba(255, 255, 255, 0.9);
+    width: 88%;
+    height: 100vh;
+    padding-top: 50px;
+    transition: 0.5s;
+  }
+  .p-header__nav.active {
+    transition: 0.5s;
+    transform: translateX(-100%);
+    z-index: 2;
+  }
+  .p-header__nav .p-container__nav .p-nav__item .p-nav__link {
+    color: #ededed;
+  }
+}
+
+.p-header__nav .p-hamburger__menu {
+  display: none;
+}
+
+@media screen and (max-width: 1179px) {
+  .p-header__nav .p-hamburger__menu {
+    display: block;
+    color: #fff;
+    background: #3f3f3f;
+    margin-top: 8px;
+    margin-right: 30px;
+    padding: 18px;
+    font-weight: bold;
+  }
+}
+
+.p-header__nav .p-nav__menu {
+  display: flex;
+  align-items: center;
+  /* li タグ */
+}
+
+.p-header__nav .p-nav__menu .nav-menu__list {
+  margin-right: 32px;
+  /* a タグ */
+  /*PCではサイドバーを使用するためヘッダーに追加したサイドバーのリンクは非表示*/
+}
+
+@media screen and (max-width: 1179px) {
+  .p-header__nav .p-nav__menu .nav-menu__list .nav-menu__link {
+    color: #6c6c6c;
+  }
+}
+
+.p-header__nav .p-nav__menu .nav-menu__list.c-sp__sidebar {
+  display: none;
+  /*tabとspで表示させる*/
+}
+
+@media screen and (max-width: 1179px) {
+  .p-header__nav .p-nav__menu .nav-menu__list.c-sp__sidebar {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 1179px) {
+  .p-header__nav .p-nav__menu {
+    display: block;
+  }
+  .p-header__nav .p-nav__menu .nav-menu__list {
+    /* a タグ */
+  }
+  .p-header__nav .p-nav__menu .nav-menu__list .nav-menu__link {
+    padding: 2vh;
+    text-align: center;
+    font-weight: bold;
+    display: block;
+    border-bottom: 1px dotted #3f3f3f;
+  }
+}
+
+/*ハンバーガーメニュークリック用アイコン*/
+.p-hamburger-menu-icn {
+  display: none;
+  transition: all 0.4s;
+  position: absolute;
+  right: 8px;
+  width: 40px;
+  height: 32px;
+  z-index: 30;
+}
+
+@media screen and (max-width: 1179px) {
+  .p-hamburger-menu-icn {
+    display: inline-block;
+  }
+}
+
+.p-hamburger-menu-icn span {
+  display: inline-block;
+  transition: all 0.4s;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #6c6c6c;
+  border-radius: 4px;
+}
+
+.p-hamburger-menu-icn span:nth-of-type(1) {
+  top: 0;
+}
+
+.p-hamburger-menu-icn span:nth-of-type(2) {
+  top: 14px;
+}
+
+.p-hamburger-menu-icn span:nth-of-type(3) {
+  bottom: 0;
+}
+
+.p-hamburger-menu-icn.active span:nth-of-type(1) {
+  transform: translateY(12px) rotate(-45deg);
+}
+
+.p-hamburger-menu-icn.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.p-hamburger-menu-icn.active span:nth-of-type(3) {
+  transform: translateY(-15px) rotate(45deg);
+}
+
+/*=================================================*/
+/*                  Sidebar*/
+/*=================================================*/
+.p-sidebar {
+  padding: 40px 16px 16px 16px;
+  margin: 16px;
+  border-radius: 8px;
+}
+
+.p-sidebar .p-sidebar__menu {
+  margin-bottom: 72px;
+}
+
+.p-sidebar .p-sidebar__menu .p-menu__list {
+  margin-bottom: 32px;
+}
+
+.p-sidebar .p-sidebar__menu .p-menu__list .p-menu__link {
+  padding-left: 16px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.p-sidebar .p-sidebar__icns {
+  display: flex;
+  justify-content: space-around;
+}
+
+.p-sidebar .p-sidebar__icns .p-li__icn {
+  font-size: 30px;
+}
+
+/*=================================================*/
+/*                  Footer                         */
+/*=================================================*/
+.p-footer {
+  padding: 24px;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .p-footer {
+    padding: 10px;
+  }
+}
+
+.p-footer__a {
+  color: #ededed;
+}
+
+@media screen and (max-width: 767px) {
+  .p-footer__a {
+    font-size: 12px;
+  }
+}
+
+.p-footer br {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .p-footer br {
+    display: block;
+  }
+}
+
+/*=================================================*/
+/*                  リスト                         */
+/*=================================================*/
+/*HowToUseのリスト*/
+.p-use__container {
+  margin-bottom: 4rem;
+  padding: 2rem;
+  box-shadow: 1px 1px 1px 1px 0px 0px #6c6c6c;
+}
+
+@media screen and (max-width: 767px) {
+  .p-use__container {
+    padding: 0.7rem;
+  }
+  .p-use__container .c-sub__title {
+    text-align: center;
+  }
+}
+
+.p-use__container .p-use__menu {
+  padding: 1rem 2rem;
+  list-style: disc;
+}
+
+.p-use__container .p-use__menu .p-use__list {
+  margin: 1rem 0;
+  font-size: 18rem;
+}
+
+@media screen and (max-width: 767px) {
+  .p-use__container .p-use__menu .p-use__list {
+    font-size: 14rem;
+  }
+}
+
+.p-use__container .p-use__menu .p-use__list .c-li__a {
+  color: #b6a489;
+  font-weight: bold;
+}
+
+/*=================================================*/
+/*                  フォーム                       */
+/*=================================================*/
+/*フォームコンテナ*/
+.p-form__container {
+  overflow: hidden;
+  margin-bottom: 120px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-form__container {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 24px;
+  }
+}
+
+.p-form__container .p-form {
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 0 auto;
+  overflow: hidden;
+  /*ログインフォーム*/
+  /*パスワード変更フォーム*/
+  /*パスワード再送フォーム2*/
+  /*パスワード再送フォーム1*/
+  /*プロフィール編集フォーム*/
+  /*点検結果送信フォーム*/
+  /*点検内容詳細*/
+  /*サインアップフォーム*/
+  /*退会フォーム*/
+}
+
+.p-form__container .p-form.p-form__login {
+  width: 560px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-form__container .p-form.p-form__login {
+    width: 100%;
+  }
+}
+
+.p-form__container .p-form.p-form__passEdit {
+  width: 560px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-form__container .p-form.p-form__passEdit {
+    width: 100%;
+    padding: 8px;
+  }
+}
+
+.p-form__container .p-form.p-form__passRemindRecieve {
+  width: 560px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-form__container .p-form.p-form__passRemindRecieve {
+    width: 100%;
+  }
+}
+
+.p-form__container .p-form.p-form__passRemindSend {
+  width: 560px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-form__container .p-form.p-form__passRemindSend {
+    width: 100%;
+  }
+}
+
+.p-form__container .p-form.p-form__profEdit {
+  width: 560px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-form__container .p-form.p-form__profEdit {
+    width: 100%;
+    padding: 8px;
+  }
+}
+
+.p-form__container .p-form.p-form__report {
+  display: flex;
+  /*点検項目の横幅*/
+}
+
+@media screen and (max-width: 767px) {
+  .p-form__container .p-form.p-form__report {
+    flex-direction: column;
+    padding: 0;
+  }
+}
+
+.p-form__container .p-form.p-form__report .p-report__container {
+  width: 50%;
+  padding: 20px;
+  align-self: flex-start;
+}
+
+@media screen and (max-width: 767px) {
+  .p-form__container .p-form.p-form__report .p-report__container {
+    width: 100%;
+    padding: 8px;
+  }
+}
+
+.p-form__container .p-form.p-form__reportDetail {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 767px) {
+  .p-form__container .p-form.p-form__reportDetail {
+    padding: 16px;
+  }
+}
+
+.p-form__container .p-form.p-form__reportDetail .p-form__head {
+  /*お気に入りアイコン*/
+}
+
+.p-form__container .p-form.p-form__reportDetail .p-form__head .icn-like {
+  font-size: 30px;
+  float: right;
+  color: #6c6c6c;
+}
+
+.p-form__container .p-form.p-form__reportDetail .p-form__head .icn-like:hover {
+  cursor: pointer;
+}
+
+.p-form__container .p-form.p-form__reportDetail .p-form__head .icn-like.active {
+  float: right;
+  color: #0a84ff;
+}
+
+@media screen and (max-width: 767px) {
+  .p-form__container .p-form.p-form__reportDetail .p-form__head .icn-like {
+    font-size: 24px;
+  }
+}
+
+.p-form__container .p-form.p-form__reportDetail .p-form__head .badge {
+  background: #0a84ff;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 16px;
+  padding: 5px 10px;
+  color: #fff;
+  margin-right: 10px;
+  vertical-align: middle;
+  position: relative;
+  top: -4px;
+}
+
+.p-form__container .p-form.p-form__reportDetail .p-form__imgContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 48px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-form__container .p-form.p-form__reportDetail .p-form__imgContainer {
+    flex-direction: column;
+    margin-top: 0;
+    padding: 0;
+  }
+}
+
+.p-form__container .p-form.p-form__reportDetail .p-form__imgContainer .p-imgContainer__main {
+  width: 480px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-form__container .p-form.p-form__reportDetail .p-form__imgContainer .p-imgContainer__main {
+    margin-bottom: 16px;
+    padding: 0;
+  }
+}
+
+.p-form__container .p-form.p-form__reportDetail .p-form__imgContainer .p-imgContainer__main .c-img__main {
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 767px) {
+  .p-form__container .p-form.p-form__reportDetail .p-form__imgContainer .p-imgContainer__main .c-img__main {
+    max-height: 280px;
+  }
+}
+
+.p-form__container .p-form.p-form__reportDetail .p-form__imgContainer .p-imgContainer__sub {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  max-width: 240px;
+  background: #f9f9f9;
+  padding: 15px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-form__container .p-form.p-form__reportDetail .p-form__imgContainer .p-imgContainer__sub {
+    flex-direction: row;
+    padding: 0;
+  }
+}
+
+.p-form__container .p-form.p-form__reportDetail .p-form__imgContainer .p-imgContainer__sub .c-img__sub {
+  margin-bottom: 15px;
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 767px) {
+  .p-form__container .p-form.p-form__reportDetail .p-form__imgContainer .p-imgContainer__sub .c-img__sub {
+    width: 40%;
+    margin-bottom: 0px;
+  }
+}
+
+.p-form__container .p-form.p-form__reportDetail .p-form__imgContainer .p-imgContainer__sub .c-img__sub:last-child {
+  margin-bottom: 0;
+}
+
+.p-form__container .p-form.p-form__reportDetail .p-form__imgContainer .p-imgContainer__sub:hover {
+  cursor: pointer;
+}
+
+.p-form__container .p-form.p-form__reportDetail .p-form__body {
+  padding: 15px;
+  margin-top: 40px;
+  margin-bottom: 32px;
+  max-height: 150px;
+}
+
+@media screen and (max-width: 1179px) {
+  .p-form__container .p-form.p-form__reportDetail .p-form__body {
+    margin-top: 16px;
+    margin-bottom: 0;
+    font-size: 12px;
+  }
+}
+
+.p-form__container .p-form.p-form__reportDetail .p-form__foot {
+  overflow: hidden;
+  margin-top: 15px;
+  margin-bottom: 50px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.p-form__container .p-form.p-form__signup {
+  width: 560px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-form__container .p-form.p-form__signup {
+    width: 100%;
+  }
+}
+
+.p-form__container .p-form.p-form__withdraw {
+  width: 560px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-form__container .p-form.p-form__withdraw {
+    width: 100%;
+  }
+}
+
+.p-form__container .p-form.p-form__withdraw .p-use__menu {
+  padding-left: 36px;
+  padding-right: 24px;
+  list-style: disc;
+  margin: 24px 0 56px 0;
+}
+
+@media screen and (max-width: 1179px) {
+  .p-form__container .p-form.p-form__withdraw .p-use__menu {
+    padding: 24px 0px 24px 0px;
+    margin: 8px 0;
+  }
+}
+
+.p-form__container .p-form.p-form__withdraw .p-use__menu .p-use__list {
+  margin-bottom: 24px;
+  font-size: 18rem;
+}
+
+@media screen and (max-width: 1179px) {
+  .p-form__container .p-form.p-form__withdraw .p-use__menu .p-use__list {
+    margin-bottom: 32px;
+    font-size: 14px;
+  }
+}
+
+/*=================================================*/
+/*                  検索                           */
+/*=================================================*/
+.p-search__container {
+  margin-bottom: 4rem;
+}
+
+.p-search__container .p-search__title {
+  margin: 2rem auto;
+  padding: 0 1.8em 0 1.8em;
+  overflow: hidden;
+  height: 3em;
+  line-height: 3em;
+}
+
+.p-search__container .p-search__title .p-search__left {
+  float: left;
+}
+
+.p-search__container .p-search__title .p-search__left .p-serch__totalNum {
+  color: #b6a489;
+  padding-right: 1em;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+}
+
+.p-search__container .p-search__title .p-search__right {
+  float: right;
+  font-size: 1.2rem;
+}
+
+.p-search__container .p-search__title .p-search__right .p-serch__num {
+  font-weight: bold;
+}
+
+.p-search__container .p-search__select {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.p-search__container .p-search__select .p-search__selectbox {
+  width: 40%;
+  display: inline-flex;
+  margin: 0 0.8em 0 0;
+}
+
+.p-search__container .p-search__select .p-search__button {
+  width: 20%;
+  display: inline-flex;
+  margin: 0 0.8em 0 0;
+}
+
+.p-search__container .p-search__select .p-search__button .c-button {
+  margin: 0;
+}
+
+/*=================================================*/
+/*                  メッセージスライド             */
+/*=================================================*/
+/*パスワードの変更時や再発行時のメッセージ表示用*/
+.p-msg__slide {
+  z-index: 30;
+  position: fixed;
+  font-size: 26px;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  color: #3f3f3f;
+  background: #dff0e8;
+  text-align: center;
+  line-height: 80px;
+  box-shadow: 0px 0px 2px 0px #6c6c6c;
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 767px) {
+  .p-msg__slide {
+    height: 60px;
+    line-height: 30px;
+    font-size: 13px;
+  }
+}
+
+.p-msg__slide::after, .p-msg__slide::before {
+  font-family: "FontAwesome";
+  content: "\f09b";
+}
+
+/*=================================================*/
+/*                  連絡掲示板*/
+/*=================================================*/
+.p-messageBord {
+  width: 900px;
+  /*連絡掲示板spで表示する簡易版*/
+  /*新しいメッセージ作成テキストエリア*/
+}
+
+@media screen and (max-width: 1179px) {
+  .p-messageBord {
+    width: 100%;
+  }
+  .p-messageBord .c-main__title {
+    display: none;
+  }
+}
+
+.p-messageBord .p-message__info {
+  background: #f9f9f9;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 24px;
+  margin-bottom: 32px;
+  border-radius: 8px;
+  /*spでは表示しない*/
+}
+
+@media screen and (max-width: 767px) {
+  .p-messageBord .p-message__info {
+    display: none;
+  }
+}
+
+.p-messageBord .p-message__info .p-partner__avatar {
+  text-align: center;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 32px 16px 32px;
+  border-radius: 16px;
+}
+
+.p-messageBord .p-message__info .p-partner__avatar .p-partner__img {
+  margin: 0 auto;
+  width: 88px;
+  height: 88px;
+  border-radius: 44px;
+}
+
+.p-messageBord .p-message__info .p-partner__avatar .p-partner__info .p-partner__name {
+  padding: 8px;
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.p-messageBord .p-message__info .p-partner__avatar .p-partner__info .c-ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.p-messageBord .p-message__info .p-partner__avatar .p-partner__info .c-ul :first-child {
+  font-weight: bold;
+}
+
+.p-messageBord .p-message__info .p-partner__avatar .p-partner__info .c-ul .c-li {
+  text-align: left;
+}
+
+.p-messageBord .p-message__info .p-report__info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 500px;
+}
+
+.p-messageBord .p-message__info .p-report__info .c-list__text {
+  display: block;
+}
+
+.p-messageBord .p-message__infoSp {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .p-messageBord .p-message__infoSp {
+    display: flex;
+    background: #f9f9f9;
+    height: 10vh;
+    justify-content: space-around;
+  }
+  .p-messageBord .p-message__infoSp .p-partner__avatar {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #ededed;
+  }
+  .p-messageBord .p-message__infoSp .p-partner__avatar .p-partner__img {
+    margin-left: 16px;
+    width: 48px;
+    height: 48px;
+    border-radius: 44px;
+  }
+  .p-messageBord .p-message__infoSp .p-partner__avatar .p-partner__info {
+    width: 100%;
+  }
+  .p-messageBord .p-message__infoSp .p-partner__avatar .p-partner__info .c-ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .p-messageBord .p-message__infoSp .p-partner__avatar .p-partner__info .c-ul :first-child {
+    font-weight: bold;
+  }
+  .p-messageBord .p-message__infoSp .p-partner__avatar .p-partner__info .c-ul .c-li {
+    font-size: 12px;
+    text-align: left;
+  }
+}
+
+.p-messageBord .p-message__bord {
+  height: 500px;
+  background: #f9f9f9;
+}
+
+@media screen and (max-width: 767px) {
+  .p-messageBord .p-message__bord {
+    padding-top: 10vh;
+    height: 60vh;
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.p-messageBord .p-message__bord .p-message__cnt {
+  width: 94%;
+  overflow: hidden;
+  margin-bottom: 30px;
+  /*左右共通のメッセージボード*/
+  /*左 reporter側のメッセージボード*/
+  /*右 questoner側のメッセージボード*/
+}
+
+.p-messageBord .p-message__bord .p-message__cnt .p-message__avatar {
+  width: 7%;
+  overflow: hidden;
+  float: left;
+}
+
+.p-messageBord .p-message__bord .p-message__cnt .p-message__avatar .p-avatar__img {
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  float: left;
+}
+
+@media screen and (max-width: 767px) {
+  .p-messageBord .p-message__bord .p-message__cnt .p-message__avatar .p-avatar__img {
+    display: none;
+  }
+}
+
+.p-messageBord .p-message__bord .p-message__cnt .p-msg__inrTxt {
+  font-size: 20px;
+  max-width: 70%;
+  float: left;
+  border-radius: 5px;
+  padding: 8px;
+  margin: 0 0 0 25px;
+  position: relative;
+  /*折り返し*/
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.p-messageBord .p-message__bord .p-message__cnt .p-message__date {
+  font-size: 0.4em;
+}
+
+.p-messageBord .p-message__bord .p-message__cnt .p-message__date.date-right {
+  text-align: right;
+}
+
+.p-messageBord .p-message__bord .p-message__cnt.p-left__message .p-left__inrTxt {
+  background: #faedeb;
+}
+
+.p-messageBord .p-message__bord .p-message__cnt.p-left__message .p-left__inrTxt .p-left__triangle {
+  position: absolute;
+  left: -30px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-right: 20px solid #faedeb;
+  border-left: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.p-messageBord .p-message__bord .p-message__cnt.p-right__message {
+  float: right;
+}
+
+.p-messageBord .p-message__bord .p-message__cnt.p-right__message .p-right__avatar {
+  float: right;
+}
+
+.p-messageBord .p-message__bord .p-message__cnt.p-right__message .p-right__inrTxt {
+  margin: 0 25px 0 0;
+  background: #def4fa;
+  float: right;
+}
+
+.p-messageBord .p-message__bord .p-message__cnt.p-right__message .p-right__inrTxt .p-right__triangle {
+  position: absolute;
+  right: -30px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-left: 20px solid #def4fa;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.p-messageBord .p-newMessage__sendArea {
+  background: #f9f9f9;
+  padding: 0 24px 32px 24px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-messageBord .p-newMessage__sendArea {
+    padding: 0 16px 0 16px;
+  }
+}
+
+.p-messageBord .p-newMessage__sendArea .p-message__textarea {
+  width: 100%;
+  background: #fff;
+  height: 100px;
+  padding: 15px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-messageBord .p-newMessage__sendArea .p-message__textarea {
+    height: 13vh;
+    margin-bottom: 8px;
+  }
+}
+
+.p-msg__container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.p-msg__container .p-msg__counter {
+  text-align: right;
+  display: inline-block;
+  width: 50%;
+}
+
+.p-msg__container .p-form-errorMsgContainer {
+  display: inline-block;
+  width: 50%;
+}
+
+.p-message-counter {
+  text-align: right;
+}
+
+/*=================================================*/
+/*                  パネル                         */
+/*=================================================*/
+/*mypage*/
+.p-scroll__panel {
+  max-height: 640px;
+  border-radius: 8px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-scroll__panel {
+    max-height: 380px;
+  }
+}
+
+.p-scroll__panel .p-scroll__link {
+  height: 450px;
+  border-radius: 8px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-scroll__panel .p-scroll__link {
+    height: 320px;
+  }
+}
+
+.p-scroll__panel .p-scroll__link:hover {
+  background: #f9f9f9;
+}
+
+/*=================================================*/
+/*                  CONTACT                        */
+/*=================================================*/
+.js-form__group .js-contact-help-block {
+  font-size: 14rem;
+}
+
+.js-form__group.has-error .js-text-counter,
+.js-form__group.has-error .js-contact-help-block,
+.js-form__group.has-error label {
+  color: #f1958d;
+}
+
+.js-form__group.has-error input,
+.js-form__group.has-error textarea {
+  background: #faedeb;
+}
+
+/*=================================================*/
+/*                  ul li a タグ                      */
+/*=================================================*/
+/*div,aタグ文字*/
+.c-font__p {
+  display: block;
+  margin-top: 2rem;
+  line-height: 2em;
+}
+
+.c-font__a {
+  margin: 2rem 0 1rem 0;
+  line-height: 1em;
+}
