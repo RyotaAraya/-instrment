@@ -1,6 +1,10 @@
 <!-- Body -->
-<?php $value = $_COOKIE["myCookieName"]; ?>
+<?php $modeFlg = $_COOKIE["myCookieName"];
 
-<body class="l-body <?php if ($value == "isActive") {
+debug('darkmode:'.print_r($modeFlg,true));
+?>
+
+
+<body class="l-body <?php if ($modeFlg == "isActive") {
                       echo "darkmode";
                     } ?>">

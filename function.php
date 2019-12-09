@@ -12,13 +12,13 @@ ini_set('error_log', 'php.log');
 // 開発フラグ
 //===============================
 //テスト環境と本番環境でdb接続先を変える
-$dbTestmode_flg = false;
+$dbTestmode_flg = true;
 
 //================================
 // デバッグ
 //================================
 //デバッグフラグ
-$debug_flg = false;
+$debug_flg = true;
 //デバッグログ関数
 function debug($str)
 {
