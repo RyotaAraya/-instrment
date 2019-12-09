@@ -316,7 +316,7 @@ function dbConnect()
     $password = 'root';
   } else {
     /*外部ファイルを読み込む*/
-    require('production-config.php');
+    require('productionConfig.php');
     $dsn;
     $user;
     $password;

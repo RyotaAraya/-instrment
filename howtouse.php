@@ -93,7 +93,7 @@ require('body.php');
           <h2 class="c-sub__title">退会</h2>
           <ul class="c-ul p-use__menu">
             <li class="c-li p-use__list">同じアカウントで再度ログインできません。emailは同じ物を使用可能です。</li>
-            <li class="c-li p-use__list">同じアカウントで再登録したい場合は<a class="c-li__a" href="passRemindSend.php">管理者</a>に連絡をお願いします。</li>
+            <li class="c-li p-use__list">同じアカウントで再登録したい場合は<a class="c-li__a" href="contact.php">管理者</a>に連絡をお願いします。</li>
           </ul>
         </div>
 
