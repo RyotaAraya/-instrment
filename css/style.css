@@ -321,6 +321,7 @@ table {
 
 input[type="text"], input[type="password"], input[type="date"], input[type="submit"] {
   border: none;
+  -webkit-appearance: none;
 }
 
 input[type="text"]::placeholder, input[type="password"]::placeholder, input[type="date"]::placeholder, input[type="submit"]::placeholder {
@@ -558,7 +559,7 @@ html .l-body .l-body__main {
 .fas.fa-moon {
   display: inline;
   font-size: 28px;
-  color: #b2e6f4;
+  color: #85a4ee;
 }
 
 .fas.fa-sun {
@@ -617,8 +618,8 @@ html .l-body .l-body__main {
   font-family: "Font Awesome 5 Free";
   content: "\f186";
   font-weight: 900;
-  color: #b2e6f4;
-  font-size: 28px;
+  color: #85a4ee;
+  font-size: 24px;
 }
 
 .darkmode .c-switch__mode .c-mode__icn::after {
@@ -626,7 +627,7 @@ html .l-body .l-body__main {
   content: "\f185";
   font-weight: 900;
   color: #fbd8d4;
-  font-size: 28px;
+  font-size: 24px;
 }
 
 /*=================================================*/
