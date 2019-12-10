@@ -28,15 +28,11 @@
           <li class="c-li nav-menu__list">
             <a class="c-li__a nav-menu__link" href="login.php">Login</a></li>
           <li class="c-li nav-menu__list">
-            <!-- moonFlgがisActiveでsun, notActiveでmoon -->
             <!-- Dark Mode 切替 -->
-            <?php if ($modeFlg === "isActive") { ?>
-              <div id="js-switch-mode" class="switch_mode nav-menu__link"><i class="fas fa-sun"></i></div>
-            <?php
-              } else { ?>
-              <div id="js-switch-mode" class="switch_mode nav-menu__link"><i class="fas fa-moon"></i></div>
-            <?php
-              } ?>
+            <div id="js-switch-mode" class="c-switch__mode nav-menu__link">
+              <!-- mode change -->
+              <i class="c-mode__icn"></i>
+            </div>
           </li>
         <?php
         } else {
@@ -72,15 +68,11 @@
             <a class="c-li__a nav-menu__link" href="logout.php" onclick="return confirm('ログアウトしますよろしいですか？')">Logout</a>
           </li>
           <li class="c-li nav-menu__list">
-            <!-- moonFlgがisActiveでsun,notActiveでmoon -->
             <!-- Dark Mode 切替 -->
-            <?php if ($modeFlg === "isActive") { ?>
-              <div id="js-switch-mode" class="switch_mode nav-menu__link"><i class="fas fa-sun"></i></div>
-            <?php
-              } else { ?>
-              <div id="js-switch-mode" class="switch_mode nav-menu__link"><i class="fas fa-moon"></i></div>
-            <?php
-              } ?>
+            <div id="js-switch-mode" class="c-switch__mode nav-menu__link">
+              <!-- mode change -->
+              <i class="c-mode__icn"></i>
+            </div>
           </li>
 
         <?php

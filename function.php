@@ -18,12 +18,12 @@ $dbTestmode_flg = true;
 // デバッグ
 //================================
 //デバッグフラグ
-$debug_flg = true;
+//$debug_flg = true;
 //デバッグログ関数
 function debug($str)
 {
-  global $debug_flg;
-  if (!empty($debug_flg)) {
+  global $dbTestmode_flg;
+  if (!empty($dbTestmode_flg)) {
     error_log('デバッグ：' . $str);
   }
 }

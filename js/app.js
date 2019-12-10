@@ -74,18 +74,7 @@ $(function() {
   }
 
   $("#js-switch-mode").on("click", function() {
-    console.log("dark");
     $("body").toggleClass("darkmode");
-    $(this).toggleClass("is-active");
-    if (moonFlg == "off") {
-      //DarkMode
-      $(this).html("<i class='fas fa-sun'></i>");
-      moonFlg = "on";
-    } else {
-      //LightMOde
-      $(this).html("<i class='fas fa-moon'></i>");
-      moonFlg = "off";
-    }
     setMyCookie();
   });
 

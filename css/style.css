@@ -613,6 +613,23 @@ html .l-body .l-body__main {
 }
 
 /*=================================================*/
+.c-switch__mode .c-mode__icn::after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f186";
+  font-weight: 900;
+  color: #b2e6f4;
+  font-size: 28px;
+}
+
+.darkmode .c-switch__mode .c-mode__icn::after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f185";
+  font-weight: 900;
+  color: #fbd8d4;
+  font-size: 28px;
+}
+
+/*=================================================*/
 /*                  title                          */
 /*=================================================*/
 .c-main__title {
@@ -1821,10 +1838,17 @@ html .l-body .l-body__main {
 }
 
 .p-messageBord .p-message__bord .p-message__cnt .p-message__avatar .p-avatar__img {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 20px;
   float: left;
+}
+
+@media screen and (max-width: 1179px) {
+  .p-messageBord .p-message__bord .p-message__cnt .p-message__avatar .p-avatar__img {
+    width: 40px;
+    height: 40PX;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -1927,12 +1951,12 @@ html .l-body .l-body__main {
 .p-msg__container .p-msg__counter {
   text-align: right;
   display: inline-block;
-  width: 50%;
+  width: 30%;
 }
 
 .p-msg__container .p-form-errorMsgContainer {
   display: inline-block;
-  width: 50%;
+  width: 70%;
 }
 
 .p-message-counter {

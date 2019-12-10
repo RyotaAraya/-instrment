@@ -1,7 +1,7 @@
 <!-- Body -->
 <?php $modeFlg = $_COOKIE["myCookieName"];
 
-debug('darkmode:'.print_r($modeFlg,true));
+//debug('darkmode:'.print_r($modeFlg,true));
 ?>
 
 
