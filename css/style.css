@@ -348,6 +348,7 @@ textarea:focus {
 *::before,
 *::after {
   box-sizing: border-box;
+  -webkit-appearance: none;
 }
 
 select {
@@ -376,7 +377,7 @@ select::-ms-expand {
   box-shadow: 0px 0px 2px 0px #6c6c6c;
 }
 
-@media screen and (max-width: 1179px) {
+@media screen and (max-width: 767px) {
   .l-header {
     height: 60px;
   }
@@ -485,9 +486,8 @@ html .l-body .l-body__main {
 /*=================================================*/
 .c-button__container .c-button {
   width: 100%;
-  margin-bottom: 2rem;
   border-radius: 4px;
-  padding: 1rem 2rem;
+  padding: 11px 0px;
   /*sign-up*/
   /*withdraw*/
   /*log-in*/
