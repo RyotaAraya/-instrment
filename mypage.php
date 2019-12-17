@@ -59,13 +59,20 @@ require('body.php');
       <h2 class="c-sub__title p-subtitle__report">点検した計器一覧 </h2>
       <section class="c-panel c-scroll__container p-scroll__panel">
         <?php
-        if (!empty($reportData)) :
-          foreach ($reportData as $key => $val) :
-            ?>
+                                if (!empty($reportData)) :
+                                  foreach ($reportData as $key => $val) :
+        ?>
             <a href="report.php<?php echo (!empty(appendGetParam())) ? appendGetParam() . '&report_id=' . $val['id'] : '?report_id=' . $val['id']; ?>" class="c-panel__link p-scroll__link">
+              <!-- 通常時の表示 -->
               <div class="c-panel__head">
                 <img class="c-panel__img" src="<?php echo showImg(sanitize($val['pic1'])); ?>" alt="<?php echo sanitize($val['tag']); ?>">
               </div>
+              <!-- hover時の表示 -->
+              <div class="c-panel__head hover">
+                <img class="c-panel__img pic1" src="<?php echo showImg(sanitize($val['pic1'])); ?>" alt="<?php echo sanitize($val['tag']); ?>">
+                <img class="c-panel__img pic2" src="<?php echo showImg(sanitize($val['pic2'])); ?>" alt="<?php echo sanitize($val['tag']); ?>">
+              </div>
+              <!-- 通常時の表示 -->
               <div class="c-panel__body">
                 <ul>
                   <li class="c-panel__list"><?php echo sanitize($val['plant']); ?></li>
@@ -74,16 +81,29 @@ require('body.php');
                   <li class="c-panel__list">状態：<?php echo sanitize($val['status_data']); ?></li>
                 </ul>
               </div>
+              <!-- ホバーしたら表示させる -->
+              <div class="c-panel__body hover">
+                <ul>
+                  <li class="c-panel__list"><?php echo sanitize($val['plant']); ?>　<?php echo sanitize($val['tag']); ?></li><br>
+                  <li class="c-panel__list">点検日：<?php echo sanitize($val['testday']); ?></li>
+                  <li class="c-panel__list">担当：<?php echo sanitize($val['staff']); ?></li>
+                  <li class="c-panel__list">状態：<?php echo sanitize($val['status_data']); ?></li><br>
+                  <li class="c-panel__list">不具合</li>
+                  <li class="c-panel__list"><?php echo sanitize($val['symptoms']); ?></li><br>
+                  <li class="c-panel__list">処置</li>
+                  <li class="c-panel__list"><?php echo sanitize($val['observation']); ?></li><br>
+                </ul>
+              </div>
             </a>
           <?php
-            endforeach;
-          // endif;
-          else :
-            ?>
+                                                                                                        endforeach;
+                                                                                                      // endif;
+                                                                                                      else :
+          ?>
           <span class="">点検データはまだありません。点検後、<a href="report.php">Report報告</a>してください。</span>
 
         <?php
-        endif;
+                                                                                                      endif;
         ?>
       </section>
 
@@ -92,7 +112,7 @@ require('body.php');
       <h2 class="c-sub__title p-subtitle__message">連絡掲示板一覧 </h2>
       <section class="list c-table__container c-scroll__container p-scroll__panel">
         <?php
-        if (!empty($bordData)) { ?>
+                                                                                                      if (!empty($bordData)) { ?>
           <table class="c-table__main">
             <thead class="c-table__head">
               <tr class="c-table__menu">
@@ -105,20 +125,20 @@ require('body.php');
             </thead>
             <tbody class="c-table__body">
               <?php
-                //掲示板に保存されている一番新しいメッセージを表示する
-                //send_dateが新しい順に$bordDataのキーに保存し、foreachで展開し$bordData['msg']を取得する
-                //array_shiftで最も新しいメッセージが格納されているキーを$msgに挿入する
-                foreach ($bordData as $key => $val) {
-                  if (!empty($val['msg'])) {
-                    //debug('$val' . print_r($val['msg'], true));
-                    $msg = array_shift($val['msg']);
-                    //debug('$msg' . print_r($msg, true));
-                    //debug('$val' . print_r($val['msg'], true));
-                    //report_id からプラント名とタグナンバーを取得
-                    $reportmess = getReportOne($val['report_id']);
-                    //debug('$reportmess'.print_r($reportmess,true));
+                                                                                                        //掲示板に保存されている一番新しいメッセージを表示する
+                                                                                                        //send_dateが新しい順に$bordDataのキーに保存し、foreachで展開し$bordData['msg']を取得する
+                                                                                                        //array_shiftで最も新しいメッセージが格納されているキーを$msgに挿入する
+                                                                                                        foreach ($bordData as $key => $val) {
+                                                                                                          if (!empty($val['msg'])) {
+                                                                                                            //debug('$val' . print_r($val['msg'], true));
+                                                                                                            $msg = array_shift($val['msg']);
+                                                                                                            //debug('$msg' . print_r($msg, true));
+                                                                                                            //debug('$val' . print_r($val['msg'], true));
+                                                                                                            //report_id からプラント名とタグナンバーを取得
+                                                                                                            $reportmess = getReportOne($val['report_id']);
+                                                                                                            //debug('$reportmess'.print_r($reportmess,true));
 
-                    ?>
+              ?>
                   <tr class="c-table__menu">
                     <td class="c-table__list"><?php echo $reportmess['plant']; ?></td>
                     <td class="c-table__list"><?php echo $reportmess['tag']; ?></td>
@@ -130,15 +150,15 @@ require('body.php');
                     <td class="c-table__list"><a href="msg.php?m_id=<?php echo sanitize($val['id']); ?>"><?php echo mb_substr(sanitize($msg['msg']), 0, 30); ?>....</a></td>
                   </tr>
                 <?php
-                    } else {
-                      ?>
+                                                                                                          } else {
+                ?>
                   <?php
-                        // メッセージがない掲示板は削除フラグを立てる
-                        // 次回更新時に連絡しない場合削除する
-                        nonMsgdeleteMsgBord($val['id']);
-                        //report_id からプラント名とタグナンバーを取得
-                        $reportmess = getReportOne($val['report_id']);
-                        ?>
+                                                                                                            // メッセージがない掲示板は削除フラグを立てる
+                                                                                                            // 次回更新時に連絡しない場合削除する
+                                                                                                            nonMsgdeleteMsgBord($val['id']);
+                                                                                                            //report_id からプラント名とタグナンバーを取得
+                                                                                                            $reportmess = getReportOne($val['report_id']);
+                  ?>
                   <tr class="c-table__menu">
                     <td class="c-table__list"><?php echo $reportmess['plant']; ?></td>
                     <td class="c-table__list"><?php echo $reportmess['tag']; ?></td>
@@ -148,9 +168,9 @@ require('body.php');
                     <td class="c-table__list"><a href="msg.php?m_id=<?php echo sanitize($val['id']); ?>">メッセージなし</a></td>
                   </tr>
               <?php
-                  }
-                }
-              } else { ?>
+                                                                                                          }
+                                                                                                        }
+                                                                                                      } else { ?>
               <span class="c-table__non"><a href="history.php">こちらから</a>計器を選択し</span>疑問点などを質問しましょう。
             <?php }
             ?>
@@ -163,13 +183,20 @@ require('body.php');
       <h2 class="c-sub__title p-subtitle__like">お気に入り一覧 </h2>
       <section class="c-panel c-scroll__container p-scroll__panel">
         <?php
-        if (!empty($likeData)) :
-          foreach ($likeData as $key => $val) :
-            ?>
+                                                                                                      if (!empty($likeData)) :
+                                                                                                        foreach ($likeData as $key => $val) :
+        ?>
             <a href="reportDetail.php<?php echo (!empty(appendGetParam())) ? appendGetParam() . $val['report_id'] : '?report_id=' . $val['report_id']; ?>" class="c-panel__link p-scroll__link">
-              <div class="c-panel__head">
-                <img class="c-panel__img" src="<?php echo showImg(sanitize($val['pic1'])); ?>" alt="<?php echo sanitize($val['tag']); ?>">
-              </div>
+            <!-- 通常時の表示 -->
+            <div class="c-panel__head">
+              <img class="c-panel__img" src="<?php echo showImg(sanitize($val['pic1'])); ?>" alt="<?php echo sanitize($val['tag']); ?>">
+            </div>
+            <!-- hover時の表示 -->
+            <div class="c-panel__head hover">
+              <img class="c-panel__img pic1" src="<?php echo showImg(sanitize($val['pic1'])); ?>" alt="<?php echo sanitize($val['tag']); ?>">
+              <img class="c-panel__img pic2" src="<?php echo showImg(sanitize($val['pic2'])); ?>" alt="<?php echo sanitize($val['tag']); ?>">
+            </div>
+              <!-- 通常時の表示 -->
               <div class="c-panel__body">
                 <ul>
                   <li class="c-panel__list"><?php echo sanitize($val['plant']); ?></li>
@@ -178,16 +205,29 @@ require('body.php');
                   <li class="c-panel__list">状態：<?php echo sanitize($val['status_data']); ?></li>
                 </ul>
               </div>
+              <!-- ホバーしたら表示させる -->
+              <div class="c-panel__body hover">
+                <ul>
+                  <li class="c-panel__list"><?php echo sanitize($val['plant']); ?>　<?php echo sanitize($val['tag']); ?></li><br>
+                  <li class="c-panel__list">点検日：<?php echo sanitize($val['testday']); ?></li>
+                  <li class="c-panel__list">担当：<?php echo sanitize($val['staff']); ?></li>
+                  <li class="c-panel__list">状態：<?php echo sanitize($val['status_data']); ?></li><br>
+                  <li class="c-panel__list">不具合</li>
+                  <li class="c-panel__list"><?php echo sanitize($val['symptoms']); ?></li><br>
+                  <li class="c-panel__list">処置</li>
+                  <li class="c-panel__list"><?php echo sanitize($val['observation']); ?></li><br>
+                </ul>
+              </div>
             </a>
           <?php
-            endforeach;
-          // endif;
-          else :
-            ?>
+                                                                                                        endforeach;
+                                                                                                      // endif;
+                                                                                                      else :
+          ?>
           <span class="">お気に入り未登録です。どんどん<a href="history.php">登録</a>しましょう！</span>
 
         <?php
-        endif;
+                                                                                                      endif;
         ?>
       </section>
     </div>
@@ -195,5 +235,5 @@ require('body.php');
 </div>
 <!-- footer -->
 <?php
-require('footer.php');
+                                                                                                      require('footer.php');
 ?>
