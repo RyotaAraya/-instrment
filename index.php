@@ -8,6 +8,7 @@ debug('HOMEページ');
 debug('「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「');
 debugLogStart();
 //ログイン認証
+debug('login'.print_r($_SESSION, true));
 
 if (!empty($_SESSION['login_date'])) {
   debug('ログイン済みユーザーです。');

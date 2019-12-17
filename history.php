@@ -32,7 +32,7 @@ debug('currentMinNum：' . $currentMinNum);
 
 //DBから点検データを取得
 $dbReportData = getReportList($currentMinNum, $plantSort, $dateSort);
-//debug('点検データ一覧：' . print_r($dbReportData, true));
+debug('点検データ一覧：' . print_r($dbReportData, true));
 
 //DBからプラントデータを取得
 $dbPlantData = getplant();
@@ -82,18 +82,18 @@ require('body.php');
           <div class="c-label__selectbox p-selectbox__1 p-search__selectbox">
             <select class="" name="plant_sort">
               <option value="0" <?php if (getFormData('plant_sort', true) == 0) {
-                                  echo 'selected';
-                                } ?>>プラント</option>
+                                                                                                                                                    echo 'selected';
+                                                                                                                                                  } ?>>プラント</option>
               <?php
-              foreach ($dbPlantData as $key => $val) {
-                ?>
+                                                                                                                                                  foreach ($dbPlantData as $key => $val) {
+              ?>
                 <option value="<?php echo $val['id'] ?>" <?php if (getFormData('plant_sort', true) == $val['id']) {
-                                                              echo 'selected';
-                                                            } ?>>
+                                                                                                                                                      echo 'selected';
+                                                                                                                                                    } ?>>
                   <?php echo $val['plant']; ?>
                 </option>
               <?php
-              }
+                                                                                                                                                  }
               ?>
             </select>
           </div>
@@ -101,14 +101,14 @@ require('body.php');
           <div class="c-label__selectbox p-selectbox__1 p-search__selectbox">
             <select class="" name="date_sort">
               <option value="0" <?php if (getFormData('date_sort', true) == 0) {
-                                  echo 'selected';
-                                } ?>>点検日</option>
+                                                                                                                                                    echo 'selected';
+                                                                                                                                                  } ?>>点検日</option>
               <option value="1" <?php if (getFormData('date_sort', true) == 1) {
-                                  echo 'selected';
-                                } ?>>古い順</option>
+                                                                                                                                                    echo 'selected';
+                                                                                                                                                  } ?>>古い順</option>
               <option value="2" <?php if (getFormData('date_sort', true) == 2) {
-                                  echo 'selected';
-                                } ?>>新しい順</option>
+                                                                                                                                                    echo 'selected';
+                                                                                                                                                  } ?>>新しい順</option>
             </select>
           </div>
           <div class="c-button__container p-search__button">
@@ -126,12 +126,19 @@ require('body.php');
       <!-- Panal -->
       <div class="c-panel">
         <?php
-        foreach ((array)$dbReportData['data'] as $key => $val) :
-          ?>
+                                                                                                                                                  foreach ((array) $dbReportData['data'] as $key => $val) :
+        ?>
           <a href="reportDetail.php<?php echo (!empty(appendGetParam())) ? appendGetParam() . '&report_id=' . $val['id'] : '?report_id=' . $val['id']; ?>" class="c-panel__link">
+            <!-- 通常時の表示 -->
             <div class="c-panel__head">
-              <img class="c-panel__img" src="<?php echo sanitize($val['pic1']); ?>" alt="<?php echo sanitize($val['tag']); ?>">
+              <img class="c-panel__img" src="<?php echo showImg(sanitize($val['pic1'])); ?>" alt="<?php echo sanitize($val['tag']); ?>">
             </div>
+            <!-- hover時の表示 -->
+            <div class="c-panel__head hover">
+              <img class="c-panel__img pic1" src="<?php echo showImg(sanitize($val['pic1'])); ?>" alt="<?php echo sanitize($val['tag']); ?>">
+              <img class="c-panel__img pic2" src="<?php echo showImg(sanitize($val['pic2'])); ?>" alt="<?php echo sanitize($val['tag']); ?>">
+            </div>
+            <!-- 通常時の表示 -->
             <div class="c-panel__body">
               <ul>
                 <li class="c-panel__list"><?php echo sanitize($val['plant']); ?></li>
@@ -141,9 +148,23 @@ require('body.php');
                 <li class="c-panel__list">状態：<?php echo sanitize($val['status_data']); ?></li>
               </ul>
             </div>
+            <!-- ホバーしたら表示させる -->
+            <div class="c-panel__body hover">
+              <ul>
+                <li class="c-panel__list"><?php echo sanitize($val['plant']); ?></li>
+                <li class="c-panel__list"><?php echo sanitize($val['tag']); ?></li>
+                <li class="c-panel__list"><?php echo sanitize($val['testday']); ?></li>
+                <li class="c-panel__list">担当：<?php echo sanitize($val['staff']); ?></li>
+                <li class="c-panel__list">状態：<?php echo sanitize($val['status_data']); ?></li><br>
+                <li class="c-panel__list">不具合</li>
+                <li class="c-panel__list"><?php echo sanitize($val['symptoms']); ?></li><br>
+                <li class="c-panel__list">処置</li>
+                <li class="c-panel__list"><?php echo sanitize($val['observation']); ?></li><br>
+              </ul>
+            </div>
           </a>
         <?php
-        endforeach;
+                                                                                                                                                  endforeach;
         ?>
       </div>
       <!-- ページネーション 引数として現在のページ、トータルページ、プラント順、点検順 -->
@@ -154,5 +175,5 @@ require('body.php');
 </div>
 <!-- footer -->
 <?php
-require('footer.php');
+                                                                                                                                                  require('footer.php');
 ?>

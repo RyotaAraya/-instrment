@@ -14,7 +14,7 @@
       <div class="p-hamburger__menu">menu</div>
       <ul class="c-ul p-nav__menu">
         <?php
-        if (empty($_SESSION['user_id'])) {
+        if (empty($_SESSION['login_date'])) {
           ?>
           <!-- 未ログイン時のヘッダー -->
           <li class="c-li nav-menu__list">

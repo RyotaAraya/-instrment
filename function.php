@@ -475,7 +475,7 @@ function getReportList($currentMinNum = 1, $plantSort, $dateSort, $span = 10)
 
     //ページング用のSQL文作成
     //$sql = 'SELECT * FROM report WHERE delete_flg=0';
-    $sql = 'SELECT r.id, r.plant_id, r.tag, r.symptoms, r.testday, r.staff, r.observation, r.pic1,';
+    $sql = 'SELECT r.id, r.plant_id, r.tag, r.symptoms, r.testday, r.staff, r.observation, r.pic1, r.pic2,';
     $sql .= ' r.status_id, r.user_id, r.delete_flg, r.create_date, r.update_date, p.plant, s.status_data';
     $sql .= ' FROM report AS r LEFT JOIN plants AS p ON r.plant_id = p.id LEFT JOIN statusdata AS s ON r.status_id = s.id WHERE r.delete_flg = 0';
 
