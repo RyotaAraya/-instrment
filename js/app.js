@@ -23,7 +23,6 @@ $(function() {
   let nameFlg = 0;
   let emailFlg = 0;
   let telFlg = 0;
-  let moonFlg = "off";
   let passwordFlg = 0;
   let rePasswordFlg = 0;
   let oldPasswordFlg = 0;
