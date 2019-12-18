@@ -448,7 +448,7 @@ select::-ms-expand {
 
 .l-contents .l-sidebar {
   width: 200px;
-  margin-top: 166px;
+  border-left: 1px solid;
   height: 380px;
 }
 
@@ -1120,9 +1120,6 @@ html .l-body .l-body__main {
     transform: translateX(-100%);
     z-index: 2;
   }
-  .p-header__nav .p-container__nav .p-nav__item .p-nav__link {
-    color: #ededed;
-  }
 }
 
 .p-header__nav .p-hamburger__menu {
@@ -1147,25 +1144,25 @@ html .l-body .l-body__main {
   /* li タグ */
 }
 
-.p-header__nav .p-nav__menu .nav-menu__list {
+.p-header__nav .p-nav__menu .p-nav__list {
   margin-right: 32px;
   /* a タグ */
   /*PCではサイドバーを使用するためヘッダーに追加したサイドバーのリンクは非表示*/
 }
 
 @media screen and (max-width: 1179px) {
-  .p-header__nav .p-nav__menu .nav-menu__list .nav-menu__link {
+  .p-header__nav .p-nav__menu .p-nav__list .p-nav__link {
     color: #6c6c6c;
   }
 }
 
-.p-header__nav .p-nav__menu .nav-menu__list.c-sp__sidebar {
+.p-header__nav .p-nav__menu .p-nav__list.c-sp__sidebar {
   display: none;
   /*tabとspで表示させる*/
 }
 
 @media screen and (max-width: 1179px) {
-  .p-header__nav .p-nav__menu .nav-menu__list.c-sp__sidebar {
+  .p-header__nav .p-nav__menu .p-nav__list.c-sp__sidebar {
     display: block;
   }
 }
@@ -1174,10 +1171,10 @@ html .l-body .l-body__main {
   .p-header__nav .p-nav__menu {
     display: block;
   }
-  .p-header__nav .p-nav__menu .nav-menu__list {
+  .p-header__nav .p-nav__menu .p-nav__list {
     /* a タグ */
   }
-  .p-header__nav .p-nav__menu .nav-menu__list .nav-menu__link {
+  .p-header__nav .p-nav__menu .p-nav__list .p-nav__link {
     padding: 2vh;
     text-align: center;
     font-weight: bold;
@@ -1244,7 +1241,6 @@ html .l-body .l-body__main {
 .p-sidebar {
   padding: 40px 16px 16px 16px;
   margin: 16px;
-  border-radius: 8px;
 }
 
 .p-sidebar .p-sidebar__menu {

@@ -62,7 +62,7 @@ require('body.php');
 
         <div class="p-use__container">
           <h2 class="c-sub__title">プロフィール</h2>
-          <ul class="c-ul p-use__menu">
+          <ul class="p-use__menu">
             <li class="c-li p-use__list">アカウントを新規作成しログインした後、プロフィール編集ページから追加でプロフィールデータを入力をしてください。</li>
             <li class="c-li p-use__list">写真を登録すると連絡掲示板のやり取りページなどに反映されます。</li>
             <li class="c-li p-use__list">パスワード変更は同じパスワードに変更できません。</li>
@@ -72,7 +72,7 @@ require('body.php');
 
         <div class="p-use__container">
           <h2 class="c-sub__title">パスワードを忘れた場合</h2>
-          <ul class="c-ul p-use__menu">
+          <ul class="p-use__menu">
             <li class="c-li p-use__list">ログインフォームの「パスワードを忘れた場合は<a class="c-li__a" href="passRemindSend.php">コチラ</a>から」からパスワードの再発行が可能です。</li>
             <li class="c-li p-use__list">パスワード変更処理は終始同じブラウザからでないと実行できません。</li>
             <li class="c-li p-use__list">メールアドレスとパスワード両方忘れた場合は<a class="c-li__a" href="contact.php">管理者</a>に連絡をお願いします。</li>
@@ -81,7 +81,7 @@ require('body.php');
 
         <div class="p-use__container">
           <h2 class="c-sub__title">レポート作成・編集</h2>
-          <ul class="c-ul p-use__menu">
+          <ul class="p-use__menu">
             <li class="c-li p-use__list">作成後、上司に作成内容が書かれたメールが届きます。</li>
             <li class="c-li p-use__list">編集後、上司に編集内容が書かれたメールが届きます。</li>
             <li class="c-li p-use__list">レポートは一時保存できませんが、作成後は都度編集可能です。</li>
@@ -91,7 +91,7 @@ require('body.php');
 
         <div class="p-use__container">
           <h2 class="c-sub__title">退会</h2>
-          <ul class="c-ul p-use__menu">
+          <ul class="p-use__menu">
             <li class="c-li p-use__list">同じアカウントで再度ログインできません。emailは同じ物を使用可能です。</li>
             <li class="c-li p-use__list">同じアカウントで再登録したい場合は<a class="c-li__a" href="contact.php">管理者</a>に連絡をお願いします。</li>
           </ul>

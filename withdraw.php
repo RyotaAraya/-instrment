@@ -83,7 +83,7 @@ require('head.php');
         <h1 class="c-main__title">退会</h1>
         <div class="p-form__container">
           <form name="withdrawform" action="" method="post" class="p-form p-form__withdraw js-withdraw__confirm">
-            <ul class="c-ul p-use__menu">
+            <ul class="p-use__menu">
               <li class="c-li p-use__list">退会すると再ログインできません。</li>
               <li class="c-li p-use__list">emailを再使用して新規アカウントで登録することは可能です。</li>
               <li class="c-li p-use__list">同じアカウントで再登録したい場合は管理者に連絡をお願いします。</li>
