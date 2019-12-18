@@ -1305,8 +1305,8 @@ html .l-body .l-body__main {
 /*=================================================*/
 /*HowToUseのリスト*/
 .p-use__container {
-  margin-bottom: 4rem;
-  padding: 2rem;
+  margin-bottom: 32rem;
+  padding: 10rem;
   box-shadow: 1px 1px 1px 1px 0px 0px #6c6c6c;
 }
 

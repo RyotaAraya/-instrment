@@ -13,7 +13,7 @@ ini_set('error_log', 'php.log');
 //===============================
 //テスト環境と本番環境でdb接続先を変える
 //trueがテスト環境、falseで本番環境
-$dbTestmode_flg = true;
+$dbTestmode_flg = false;
 
 //================================
 // デバッグ

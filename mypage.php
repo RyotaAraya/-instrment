@@ -85,7 +85,7 @@ require('body.php');
               <div class="c-panel__body hover">
                 <ul>
                   <li class="c-panel__list"><?php echo sanitize($val['plant']); ?>　<?php echo sanitize($val['tag']); ?></li><br>
-                  <li class="c-panel__list">点検日：<?php echo sanitize($val['testday']); ?></li>
+                  <li class="c-panel__list"><?php echo sanitize($val['testday']); ?></li>
                   <li class="c-panel__list">担当：<?php echo sanitize($val['staff']); ?></li>
                   <li class="c-panel__list">状態：<?php echo sanitize($val['status_data']); ?></li><br>
                   <li class="c-panel__list">不具合</li>
