@@ -179,7 +179,7 @@ require('body.php');
 
         <label class="c-form__label">
           <input type="checkbox" name="pass_save">
-          <span class="c-form__span">次回ログインを省略する</span>
+          <span>次回ログインを省略する</span>
         </label>
 
         <div class="">

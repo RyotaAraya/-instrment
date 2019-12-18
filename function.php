@@ -437,9 +437,12 @@ function getTestReport($u_id, $report_id)
     error_log('エラー発生：' . $e->getMessage());
   }
 }
-function getReportList($currentMinNum = 1, $plantSort, $dateSort, $span = 10)
+//=======================================
+// レポート情報取得
+//=======================================
+function getReportList($currentMinNum = 1, $plantSort, $statusSort, $dateSort, $span = 10)
 {
-  debug('点検データを取得します。');
+  debug('reportデータを取得します。');
   //例外処理
   try {
     // DBへ接続
@@ -447,6 +450,7 @@ function getReportList($currentMinNum = 1, $plantSort, $dateSort, $span = 10)
     // 件数用のSQL文作成
     $sql = 'SELECT id FROM report WHERE delete_flg=0';
     if (!empty($plantSort)) $sql .= ' AND plant_id=' . $plantSort;
+    if (!empty($statusSort)) $sql .= ' AND status_id=' . $statusSort;
     if (!empty($dateSort)) {
       switch ($dateSort) {
         case 1:
@@ -480,6 +484,7 @@ function getReportList($currentMinNum = 1, $plantSort, $dateSort, $span = 10)
     $sql .= ' FROM report AS r LEFT JOIN plants AS p ON r.plant_id = p.id LEFT JOIN statusdata AS s ON r.status_id = s.id WHERE r.delete_flg = 0';
 
     if (!empty($plantSort)) $sql .= ' AND plant_id=' . $plantSort;
+    if (!empty($statusSort)) $sql .= ' AND status_id=' . $statusSort;
     if (!empty($dateSort)) {
       switch ($dateSort) {
         case 1:
@@ -545,6 +550,9 @@ function getReportOne($report_id)
     error_log('エラー発生:' . $e->getMessage());
   }
 }
+//==================================================
+//プラント情報を取得
+//==================================================
 function getPlant()
 {
   debug('プラント情報を取得します。');
@@ -568,6 +576,9 @@ function getPlant()
     error_log('エラー発生:' . $e->getMessage());
   }
 }
+//==================================================
+// Status情報を取得
+//==================================================
 function getStatus()
 {
   debug('ステータス情報を取得します。');

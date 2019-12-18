@@ -347,7 +347,6 @@ textarea:focus {
 *::before,
 *::after {
   box-sizing: border-box;
-  -webkit-appearance: none;
 }
 
 select {
@@ -819,6 +818,7 @@ html .l-body .l-body__main {
   display: flex;
   flex-wrap: wrap;
   box-shadow: 1px 0px 0px #6c6c6c;
+  min-height: 400px;
 }
 
 .c-panel .c-panel__link {
@@ -892,14 +892,14 @@ html .l-body .l-body__main {
   width: 60%;
   position: absolute;
   top: -16rem;
-  left: 6px;
+  left: 6rem;
 }
 
 .c-panel .c-panel__link:hover .c-panel__head.hover .c-panel__img.pic2 {
   width: 30%;
   position: absolute;
   top: 4rem;
-  right: 6px;
+  right: 6rem;
 }
 
 .c-panel .c-panel__link:hover .c-panel__body {
@@ -1690,15 +1690,27 @@ html .l-body .l-body__main {
 }
 
 .p-search__container .p-search__select .p-search__selectbox {
-  width: 40%;
+  max-width: 40%;
   display: inline-flex;
   margin: 0 0.8em 0 0;
 }
 
+@media screen and (max-width: 767px) {
+  .p-search__container .p-search__select .p-search__selectbox {
+    margin: 0 0.2em 0 0.2em;
+  }
+}
+
 .p-search__container .p-search__select .p-search__button {
-  width: 20%;
+  min-width: 20%;
   display: inline-flex;
   margin: 0 0.8em 0 0;
+}
+
+@media screen and (max-width: 767px) {
+  .p-search__container .p-search__select .p-search__button {
+    margin: 0 0.2em 0 0.2em;
+  }
 }
 
 .p-search__container .p-search__select .p-search__button .c-button {
@@ -1900,7 +1912,7 @@ html .l-body .l-body__main {
 @media screen and (max-width: 1179px) {
   .p-messageBord .p-message__bord .p-message__cnt .p-message__avatar .p-avatar__img {
     width: 40px;
-    height: 40PX;
+    height: 40px;
   }
 }
 
@@ -2060,7 +2072,8 @@ html .l-body .l-body__main {
 }
 
 .js-form__group.has-error input,
-.js-form__group.has-error textarea {
+.js-form__group.has-error textarea,
+.js-form__group.has-error select {
   background: #faedeb;
 }
 

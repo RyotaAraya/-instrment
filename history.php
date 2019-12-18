@@ -7,6 +7,8 @@ debug('「「「「「「「「「「「「「「「「「「「「「「「「�
 debug('計器一覧ページ');
 debug('「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「');
 debugLogStart();
+//ログイン認証
+require('auth.php');
 
 //画面処理
 //画面表示用データ取得
@@ -15,6 +17,8 @@ $currentPageNum = (!empty($_GET['p'])) ? $_GET['p'] : 1; //デフォルトは1�
 //debug('currentPageNum：' . $currentPageNum);
 //プラント
 $plantSort = (!empty($_GET['plant_sort'])) ? $_GET['plant_sort'] : '';
+//プラント
+$statusSort = (!empty($_GET['status_sort'])) ? $_GET['status_sort'] : '';
 //ソート順
 $dateSort = (!empty($_GET['date_sort'])) ? $_GET['date_sort'] : '';
 
@@ -31,12 +35,16 @@ $currentMinNum = (($currentPageNum - 1) * $listSpan); //1ページ目なら(1-1)
 debug('currentMinNum：' . $currentMinNum);
 
 //DBから点検データを取得
-$dbReportData = getReportList($currentMinNum, $plantSort, $dateSort);
+$dbReportData = getReportList($currentMinNum, $plantSort, $statusSort, $dateSort);
 debug('点検データ一覧：' . print_r($dbReportData, true));
 
 //DBからプラントデータを取得
 $dbPlantData = getplant();
 //debug('プラントデータ：'.print_r($dbPlantData,true));
+
+//DBからstatusデータを取得
+$dbStatusData = getstatus();
+//debug('Status：' . print_r($dbStatusData, true));
 
 
 
@@ -79,6 +87,7 @@ require('body.php');
         </div>
         <!-- セレクトボックスー -->
         <form class="p-search__select" name="" method="get">
+          <!-- プラント -->
           <div class="c-label__selectbox p-selectbox__1 p-search__selectbox">
             <select class="" name="plant_sort">
               <option value="0" <?php if (getFormData('plant_sort', true) == 0) {
@@ -97,7 +106,26 @@ require('body.php');
               ?>
             </select>
           </div>
-
+          <!-- 状態 -->
+          <div class="c-label__selectbox p-selectbox__1 p-search__selectbox">
+            <select class="" name="status_sort">
+              <option value="0" <?php if (getFormData('status_sort', true) == 0) {
+                                                                                                                                                    echo 'selected';
+                                                                                                                                                  } ?>>状態を選択</option>
+              <?php
+                                                                                                                                                  foreach ($dbStatusData as $key => $val) {
+              ?>
+                <option value="<?php echo $val['id'] ?>" <?php if (getFormData('status_sort', true) == $val['id']) {
+                                                                                                                                                      echo 'selected';
+                                                                                                                                                    } ?>>
+                  <?php echo $val['status_data']; ?>
+                </option>
+              <?php
+                                                                                                                                                  }
+              ?>
+            </select>
+          </div>
+          <!-- 点検日 -->
           <div class="c-label__selectbox p-selectbox__1 p-search__selectbox">
             <select class="" name="date_sort">
               <option value="0" <?php if (getFormData('date_sort', true) == 0) {
@@ -120,7 +148,7 @@ require('body.php');
       <!-- SpとTab画面で表示する -->
       <!-- ページネーション 引数として現在のページ、トータルページ、プラント順、点検順 -->
       <div class="c-sp__pagenation">
-        <?php pagenation($currentPageNum, $dbReportData['total_page'], '&plant_sort=' . $plantSort . '&date_sort=' . $dateSort); ?>
+        <?php pagenation($currentPageNum, $dbReportData['total_page'], '&plant_sort=' . $plantSort . '&status_sort=' . $statusSort .'&date_sort=' . $dateSort); ?>
       </div>
 
       <!-- Panal -->
@@ -166,8 +194,8 @@ require('body.php');
                                                                                                                                                   endforeach;
         ?>
       </div>
-      <!-- ページネーション 引数として現在のページ、トータルページ、プラント順、点検順 -->
-      <?php pagenation($currentPageNum, $dbReportData['total_page'], '&plant_sort=' . $plantSort . '&date_sort=' . $dateSort); ?>
+      <!-- ページネーション 引数として現在のページ、トータルページ、プラント、状態、点検順 -->
+      <?php pagenation($currentPageNum, $dbReportData['total_page'], '&plant_sort=' . $plantSort . '&status_sort=' . $statusSort . '&date_sort=' . $dateSort); ?>
 
     </div>
   </div>
