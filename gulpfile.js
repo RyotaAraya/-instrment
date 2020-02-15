@@ -21,7 +21,7 @@ gulp.task("bs-reload", function(done) {
 
 // watch
 gulp.task("watch", function(done) {
-  // gulp.watch("scss/**/*.scss", gulp.series("sass","bs-reload"));
+  gulp.watch("scss/**/*.scss", gulp.series("sass","bs-reload"));
   gulp.watch("scss/**/*.scss", gulp.task("sass"));
   gulp.watch("scss/*.scss", gulp.task("sass"));
   done();

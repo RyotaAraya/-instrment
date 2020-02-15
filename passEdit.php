@@ -71,7 +71,7 @@ if (!empty($_POST)) {
         // クエリ成功の場合
         if ($stmt) {
           //メッセージ表示用
-          $_SESSION['msg_success'] = $user_name . 'さんの' . SUC01;
+          $_SESSION['msg_success'] = $userData['user_name'] . 'さんの' . SUC01;
           //メールを送信
           $user_name = ($userData['user_name']) ? $userData['user_name'] : '名無し';
           $from = 'camerondiaztest@gmail.com';
